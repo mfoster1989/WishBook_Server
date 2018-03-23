@@ -7,3 +7,5 @@ type Messages struct {
 	token   string        `bson:"token" json:"token"`
 	Message string        `bson:message json:"message"`
 }
+
+type Messages {}message

@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 
 	_ "github.com/lib/pq"
@@ -29,6 +30,8 @@ func UpdateMessagesEndPoint(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Println("code running")
 	r := mux.NewRouter()
+	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
+	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "PUT"})
 	r.HandleFunc("/messages", AllMessagesEndPoint).Methods("GET")
 	r.HandleFunc("/messages", CreateMessagesEndPoint).Methods("POST")
 	r.HandleFunc("/messages", UpdateMessagesEndPoint).Methods("PUT")
