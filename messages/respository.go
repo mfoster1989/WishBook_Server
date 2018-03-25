@@ -12,10 +12,10 @@ import (
 type Repository struct{}
 
 // SERVER the DB server
-const SERVER = "localhost:27017"
+const SERVER = "mongodb://wishbook:subsidize@ds223609.mlab.com:23609/heroku_qcv9wrjh"
 
 // DBNAME the name of the DB instance
-const DBNAME = "wishbookserver"
+const DBNAME = "heroku_qcv9wrjh"
 
 // DOCNAME the name of the document
 const DOCNAME = "messages"
