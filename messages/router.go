@@ -17,6 +17,7 @@ type Route struct {
 	HandlerFunc http.HandlerFunc
 }
 
+// Routes I never knew linters were obsessed with comments in code
 type Routes []Route
 
 var routes = Routes{

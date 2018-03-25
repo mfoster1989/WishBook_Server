@@ -35,7 +35,7 @@ func (r Repository) GetMessages() Messages {
 	return results
 }
 
-// AddMessages inserts a message in the DB
+// AddMessage inserts a message in the DB
 func (r Repository) AddMessage(messages Messages) bool {
 	session, err := mgo.Dial(SERVER)
 	defer session.Close()
@@ -48,7 +48,7 @@ func (r Repository) AddMessage(messages Messages) bool {
 	return true
 }
 
-// Updatemessage updates an message in the DB (not used for now)
+// UpdateMessage updates an message in the DB (not used for now)
 func (r Repository) UpdateMessage(messages Messages) bool {
 	session, err := mgo.Dial(SERVER)
 	defer session.Close()
@@ -60,7 +60,7 @@ func (r Repository) UpdateMessage(messages Messages) bool {
 	return true
 }
 
-// Deletemessage deletes an message (not used for now)
+// DeleteMessage deletes an message (not used for now)
 func (r Repository) DeleteMessage(id string) string {
 	session, err := mgo.Dial(SERVER)
 	defer session.Close()
