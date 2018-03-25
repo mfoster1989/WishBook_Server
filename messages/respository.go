@@ -1,4 +1,3 @@
-// message/repository.go
 package messages
 
 import (
@@ -22,7 +21,7 @@ const DBNAME = "wishbookserver"
 const DOCNAME = "messages"
 
 // GetMessages returns the list of Messages
-func (r Repository) GetMessages() messages {
+func (r Repository) GetMessages() Messages {
 	session, err := mgo.Dial(SERVER)
 	if err != nil {
 		fmt.Println("Failed to establish connection to Mongo server:", err)
@@ -37,11 +36,11 @@ func (r Repository) GetMessages() messages {
 }
 
 // AddMessages inserts a message in the DB
-func (r Repository) AddMessage(messages Message) bool {
+func (r Repository) AddMessage(messages Messages) bool {
 	session, err := mgo.Dial(SERVER)
 	defer session.Close()
-	message.ID = bson.NewObjectId()
-	session.DB(DBNAME).C(DOCNAME).Insert(message)
+	messages.ID = bson.NewObjectId()
+	session.DB(DBNAME).C(DOCNAME).Insert(messages)
 	if err != nil {
 		log.Fatal(err)
 		return false
@@ -50,10 +49,10 @@ func (r Repository) AddMessage(messages Message) bool {
 }
 
 // Updatemessage updates an message in the DB (not used for now)
-func (r Repository) UpdateMessage(messages Message) bool {
+func (r Repository) UpdateMessage(messages Messages) bool {
 	session, err := mgo.Dial(SERVER)
 	defer session.Close()
-	session.DB(DBNAME).C(DOCNAME).UpdateId(message.ID, message)
+	session.DB(DBNAME).C(DOCNAME).UpdateId(messages.ID, messages)
 	if err != nil {
 		log.Fatal(err)
 		return false
