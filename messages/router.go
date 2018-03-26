@@ -65,7 +65,8 @@ func NewRouter() *mux.Router {
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
-	router := mux.NewRouter().StrictSlash(true)
+	router := mux.NewRouter()
+	// .StrictSlash(true)
 	for _, route := range routes {
 		var handler http.Handler
 		handler = route.HandlerFunc
