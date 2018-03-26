@@ -1,6 +1,7 @@
 package messages
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -47,6 +48,14 @@ var routes = Routes{
 		"/{id}",
 		controller.DeleteMessage,
 	},
+}
+
+func determineListenAddress() (string, error) {
+	port := os.Getenv("PORT")
+	if port == "" {
+		return "", fmt.Errorf("$PORT not set")
+	}
+	return ":" + port, nil
 }
 
 // NewRouter creates new MongoDB router
