@@ -15,6 +15,6 @@ func main() {
 	allowedOrigins := handlers.AllowedOrigins([]string{"*"})
 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "DELETE", "PUT"})
 	// launch server with CORS validations
-	log.Fatal(http.ListenAndServe(":9000",
+	log.Fatal(http.ListenAndServe("process.env.PORT || :9000",
 		handlers.CORS(allowedOrigins, allowedMethods)(router)))
 }
