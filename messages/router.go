@@ -1,7 +1,9 @@
 package messages
 
 import (
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/mfoster1989/WishBook_Server/logger"
@@ -49,6 +51,11 @@ var routes = Routes{
 
 // NewRouter creates new MongoDB router
 func NewRouter() *mux.Router {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
 	router := mux.NewRouter().StrictSlash(true)
 	for _, route := range routes {
 		var handler http.Handler
