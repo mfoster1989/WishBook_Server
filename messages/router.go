@@ -27,19 +27,19 @@ var routes = Routes{
 	Route{
 		"Index",
 		"GET",
-		"/",
+		"/messages",
 		controller.Index,
 	},
 	Route{
 		"AddMessage",
 		"POST",
-		"/",
+		"/messages",
 		controller.AddMessage,
 	},
 	Route{
 		"UpdateMessage",
 		"PUT",
-		"/",
+		"/messages",
 		controller.UpdateMessage,
 	},
 	Route{
