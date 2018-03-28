@@ -7,7 +7,7 @@ import (
 // Messages building documents
 type Messages struct {
 	ID      bson.ObjectId `bson:"_id"`
-	FBID    int64         `bson:"_id" json:"id"`
-	Token   int64         `bson:"token" json:"token"`
+	FBID    string        `bson:"_id" json:"id"`
+	Token   string        `bson:"token" json:"token"`
 	Message string        `bson:"message" json:"message"`
 }
