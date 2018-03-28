@@ -32,7 +32,6 @@ func (r Repository) GetMessages() []Messages {
 	if err := c.Find(nil).All(&results); err != nil {
 		fmt.Println("Failed to write results:", err)
 	}
-	//d
 	return results
 }
 
