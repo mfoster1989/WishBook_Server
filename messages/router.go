@@ -33,7 +33,7 @@ var routes = Routes{
 	Route{
 		"AddMessage",
 		"POST",
-		"/",
+		"/messages",
 		controller.AddMessage,
 	},
 	Route{
